@@ -26,7 +26,10 @@ def make_blanks(letters):
     global blanks
     blanks = []
     for i in range(len(letters)):
-        blanks.append('_')
+        if i == ' ':
+            blanks.append(' ')
+        else:
+            blanks.append('_')
     
     return blanks
     
