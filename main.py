@@ -57,6 +57,7 @@ make_blanks(letters)
 
 
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
+    """enter difficullty, returns word(s) of that difficulty"""
     if difNum == 1:
         words = open('easy.txt', 'rt')
     elif difNum == 2:
