@@ -27,7 +27,10 @@ def make_blanks(letters):
     global blanks
     blanks = []
     for i in range(len(letters)):
-        blanks.append('_')
+        if i == ' ':
+            blanks.append(' ')
+        else:
+            blanks.append('_')
     
     return blanks
     
@@ -58,18 +61,22 @@ make_blanks(letters)
 
 
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
+    """enter difficullty, returns word(s) of that difficulty"""
     if difNum == 1:
-        words = open('easy.txt', 'rt')
+        wordDict = 'easy.txt'
+        words = open(wordDict, 'rt')
     elif difNum == 2:
-        words = open('medium.txt', 'rt')
+        wordDict = 'medium.txt'
+        words = open(wordDict, 'rt')
     elif difNum == 3:
-        words = open('hard.txt', 'rt')
+        wordDict = 'hard.txt'
+        words = open(wordDict, 'rt')
     else:
         print(f'You tried to select difficulty {difNum}')# What if they enter '2     '  IDK prolly be fine
         kill()
     wordChoice = random.randrange(0, len(list(words)))
     words.close()
-    words = open('easy.txt', 'rt')
+    words = open(wordDict, 'rt')
     for i, line in enumerate(words):
         if i == wordChoice:
             words.close()
@@ -136,6 +143,9 @@ loading()
 title()
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac4cbd42e7a0a87a5265ddc2fd7ec6b83112946c
 
 
