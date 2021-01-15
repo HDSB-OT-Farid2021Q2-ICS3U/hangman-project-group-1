@@ -45,7 +45,6 @@ def checker(letters):
                 letters[index_num] = False
                 print(letters)
                 print('\n')
-    
     print('congrats it was', blanks)
 
 
