@@ -25,11 +25,11 @@ def make_blanks(letters):
     for i in range(len(letters)):
         blanks.append('_')
     
-    return blanks
+    # return blanks
     
 
 
-def checker():
+def checker(letters):
     while blanks.count('_') > 0:
         """checks for a letter then if it is correct it replaces string"""
         print(blanks)
@@ -129,14 +129,16 @@ def title():
         clear()
 
 
-print(make_blanks((selectDif(int(input('dificulty: '))))))
+# print(make_blanks((selectDif(int(input('dificulty: '))))))
 """=======
         counterTwo += 1
 """
 
-loading()
-title()
-
+# loading()
+# title()
+randomWord = selectDif(1)
+make_blanks(randomWord)
+checker(randomWord)
 
 
 
