@@ -1,6 +1,7 @@
 import random
 import time
 import os
+from colorama import Fore, Back, Style 
 
 temp_list = ['apple', 'banan', 'oranges']
 word = temp_list[random.randint(0,2)]
@@ -74,34 +75,67 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
             words.close()
             return line.strip('\n')
 
-i = 1
 
 
-def menu():
-    while i != 0:
+def loading():
+    counterOne = 0
+    clear = lambda: os.system('cls')
+    clear()
+    print('Loading')
+    time.sleep(1)
+    clear()
+    print('Loading.')
+    time.sleep(1)   
+    clear()
+    print('Loading..')
+    time.sleep(1)   
+    clear()
+    print('Loading...')
+    time.sleep(1)   
+    clear()
+    while counterOne != 3:
+        counterOne += 1
+        print('System Requirements Met')
+        time.sleep(1)
+        clear()
+        time.sleep(0.5)
+
+
+
+def title():
+
+    counterTwo = 0
+    while counterTwo != 3:
         clear = lambda: os.system('cls')
-        print('\033[1;33;41m//////////////////////////////////////////////\033[1;33;41m')
-        print('\033[1;33;41mStickman Game \033[2;33;41m'.center(20))
-        print('\033[1;33;41m//////////////////////////////////////////////\033[1;33;41m')
-
-
-        time.sleep(1)
-
-
-
-
+        print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
+        print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
+        print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
+        time.sleep(1.5)
+        print(Style.RESET_ALL) 
 
         clear()
-        #print('"\031[1;33;43m [\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\]')
-        print('\033[1;33;41m/|||||||||||||||||||||||||||||||||||||||||||||\033[1;33;41m')
-        print('\033[1;33;41mStickman Game \033[2;33;41m'.center(20))
-        print('\033[1;33;41m|||||||||||||||||||||||||||||||||||||||||||||\033[1;33;41m')
-        time.sleep(1)
+        print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
+        print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
+        print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
+        time.sleep(1.5)
+        print(Style.RESET_ALL) 
+
+        clear()
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
+        time.sleep(1.5)
+        print(Style.RESET_ALL) 
+
         clear()
 
+        counterTwo += 1
 
 
-menu()
+loading()
+title()
+
+
 
 
 
