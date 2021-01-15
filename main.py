@@ -26,6 +26,7 @@ def make_blanks(letters):
         blanks.append('_')
     
     return blanks
+    return letters
     
 
 
@@ -128,11 +129,11 @@ def title():
 
         clear()
 
+word = selectDif(int(input('dificulty: ')))
+letters = list(word)
+print(make_blanks(letters))
 
-print(make_blanks((selectDif(int(input('dificulty: '))))))
-"""=======
-        counterTwo += 1
-"""
 
-loading()
-title()
+checker()
+#loading()
+#title()
