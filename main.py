@@ -145,16 +145,16 @@ def menu():
 
 
         
-
+"""
 loading()
 title()
 menu()
-
+"""
 # loading()
 # title()
 randomWord = selectDif(1)
 make_blanks(randomWord)
 checker(randomWord)
-
+# Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
 
