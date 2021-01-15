@@ -1,8 +1,25 @@
 import random
+import time
+import os
 
 temp_list = ['apple', 'banan', 'oranges']
 word = temp_list[random.randint(0,2)]
 letters = list(word)
+
+black = "\033[30m"
+grey = "\033[90m"
+red = "\033[91m"
+green = "\033[92m"
+orange = "\033[93m"
+blue = "\033[94m"
+purple = "\033[95m"
+lightBlue = "\033[96m"
+
+# @The-Chef123 TODO create the main menu
+# @mythos341 TODO make the text stuff work
+
+def kill():
+    os.abort()
 
 def make_blanks(letters):
     """ takes ammount of letters and displays blanks"""
@@ -34,16 +51,9 @@ def checker():
     
     print('congrats it was', blanks)
 make_blanks(letters)
-checker()
-=======
-import time
-import random
-import os
-# @The-Chef123 TODO create the main menu
-# #mythos341 TODO make the text stuff work
 
-def kill():
-    os.abort()
+
+
 
 
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
