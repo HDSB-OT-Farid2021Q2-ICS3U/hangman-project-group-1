@@ -23,32 +23,53 @@ def make_blanks(letters):
     """ takes ammount of letters and displays blanks"""
     global blanks
     blanks = []
+    for i in letters:
+        blanks.append([i, False])
+    """
     for i in range(len(letters)):
         blanks.append('_')
-    
-    return blanks
-    return letters
+    """
     # return blanks
     
+def printBlanks():
+    for i in blanks:
+        if i[1] == False:
+            print('_', end='')
+        else:
+            print(i[0], end='')
+    print()
 
+def stillBlanks():
+    areThereStill = [x[1] for x in blanks]
+    return False in areThereStill
+
+def stillLetter(playerLetter):
+    howMany = [x[0] for x in blanks if x[1] == False]
+    return howMany.count(playerLetter) > 0
 
 def checker(letters):
-    while blanks.count('_') > 0:
+    while stillBlanks():
         """checks for a letter then if it is correct it replaces string"""
-        print(blanks)
+        # print(blanks)
         player_input = input('guess a letter: ')
-        print(letters.count(player_input))
+        # print(letters.count(player_input))
         if letters.count(player_input) == 0:
             print('try again')
         else: 
-            while letters.count(player_input) >= blanks.count(player_input):
+            lastFoundIndex = 0
+            while stillLetter(player_input):
+                lastFoundIndex = letters.index(player_input, lastFoundIndex)
+                blanks[lastFoundIndex][1] = True
+                lastFoundIndex += 1
                 #print(letters.count(player_input), blanks.count(player_input))
-                index_num = letters.index(player_input)
-                blanks[index_num] = (player_input)
-                letters[index_num] = False
-                print(letters)
-                print('\n')
-    print('congrats it was', blanks)
+                # index_num = letters.index(player_input)
+                # blanks[index_num] = (player_input)
+                # letters[index_num] = False
+                # print(letters)
+                # print('\n')
+        printBlanks()
+    print('congrats it was: ')
+    printBlanks()
 
 
 
@@ -164,7 +185,8 @@ checker(randomWord)
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
 
-
+"""
 word = selectDif(int(input('dificulty: ')))
 letters = list(word)
 print(make_blanks(letters))
+"""
