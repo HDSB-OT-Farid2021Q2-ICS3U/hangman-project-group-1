@@ -25,12 +25,16 @@ def make_blanks(letters):
     for i in range(len(letters)):
         blanks.append('_')
     
+<<<<<<< HEAD
     return blanks
     return letters
+=======
+    # return blanks
+>>>>>>> d45a568336aaabd357acb11fa8b98438ba70366d
     
 
 
-def checker():
+def checker(letters):
     while blanks.count('_') > 0:
         """checks for a letter then if it is correct it replaces string"""
         print(blanks)
@@ -46,7 +50,6 @@ def checker():
                 letters[index_num] = False
                 print(letters)
                 print('\n')
-    
     print('congrats it was', blanks)
 
 
@@ -129,6 +132,41 @@ def title():
 
         clear()
 
+
+=======
+        counterTwo += 1
+
+
+def menu():
+    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print('Stickman 1986'.center(310, '-').center(1, '|'))
+    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print('CHOOSE YOUR DIFFICULTY'.center(310, '-').center(1, '|'))
+    print('1. | I dont like challenge'.center(310, '-').center(1, '|'))
+    print('2. | You want a challenge bu you dont want to look bad'.center(310, '-').center(1, '|'))
+    print('3. | The obvious choice'.center(310, '-').center(1, '|'))
+    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print('4. | Had Enough?'.center(310, '-').center(1, '|'))
+    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+
+
+
+        
+
+loading()
+title()
+menu()
+
+# loading()
+# title()
+randomWord = selectDif(1)
+make_blanks(randomWord)
+checker(randomWord)
+
+
+
+>>>>>>> d45a568336aaabd357acb11fa8b98438ba70366d
+<<<<<<< HEAD
 word = selectDif(int(input('dificulty: ')))
 letters = list(word)
 print(make_blanks(letters))
