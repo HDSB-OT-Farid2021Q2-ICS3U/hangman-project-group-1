@@ -133,8 +133,8 @@ def title():
         clear()
 
 
-=======
-        counterTwo += 1
+"""=======
+        counterTwo += 1"""
 
 
 def menu():
@@ -163,15 +163,6 @@ randomWord = selectDif(1)
 make_blanks(randomWord)
 checker(randomWord)
 
-
-
->>>>>>> d45a568336aaabd357acb11fa8b98438ba70366d
-<<<<<<< HEAD
 word = selectDif(int(input('dificulty: ')))
 letters = list(word)
 print(make_blanks(letters))
-
-
-checker()
-#loading()
-#title()
