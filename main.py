@@ -142,7 +142,7 @@ def menu():
     print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print('4. | Had Enough?'.center(310, '-').center(1, '|'))
     print(Fore.RED + ''.center(310, '-').center(1, '|'))
-            print(Style.RESET_ALL) 
+    print(Style.RESET_ALL) 
 
 
 
