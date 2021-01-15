@@ -14,6 +14,7 @@ lightBlue = "\033[96m"
 
 # @The-Chef123 TODO create the main menu
 # @mythos341 TODO make the text stuff work
+#Check if the person uses mac/repl or windows for clear statements cls vs clear()
 
 def kill():
     os.abort()
@@ -25,12 +26,9 @@ def make_blanks(letters):
     for i in range(len(letters)):
         blanks.append('_')
     
-<<<<<<< HEAD
     return blanks
     return letters
-=======
     # return blanks
->>>>>>> d45a568336aaabd357acb11fa8b98438ba70366d
     
 
 
