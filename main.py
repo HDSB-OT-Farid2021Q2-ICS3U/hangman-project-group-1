@@ -25,7 +25,12 @@ def make_blanks(letters):
     for i in range(len(letters)):
         blanks.append('_')
     
+<<<<<<< HEAD
+    return blanks
+    return letters
+=======
     # return blanks
+>>>>>>> d45a568336aaabd357acb11fa8b98438ba70366d
     
 
 
@@ -45,7 +50,6 @@ def checker(letters):
                 letters[index_num] = False
                 print(letters)
                 print('\n')
-    
     print('congrats it was', blanks)
 
 
@@ -128,7 +132,9 @@ def title():
 
         clear()
 
-        counterTwo += 1
+
+"""=======
+        counterTwo += 1"""
 
 
 def menu():
@@ -158,5 +164,6 @@ randomWord = selectDif(1)
 make_blanks(randomWord)
 checker(randomWord)
 
-
-
+word = selectDif(int(input('dificulty: ')))
+letters = list(word)
+print(make_blanks(letters))
