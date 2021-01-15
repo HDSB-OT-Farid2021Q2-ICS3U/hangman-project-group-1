@@ -109,21 +109,21 @@ def title():
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
-        time.sleep(1.5)
+        time.sleep(0.5)
         print(Style.RESET_ALL) 
 
         clear()
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
-        time.sleep(1.5)
+        time.sleep(0.5)
         print(Style.RESET_ALL) 
 
         clear()
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
-        time.sleep(1.5)
+        time.sleep(0.5)
         print(Style.RESET_ALL) 
 
         clear()
@@ -132,16 +132,17 @@ def title():
 
 
 def menu():
-    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print('Stickman 1986'.center(310, '-').center(1, '|'))
-    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print('CHOOSE YOUR DIFFICULTY'.center(310, '-').center(1, '|'))
     print('1. | I dont like challenge'.center(310, '-').center(1, '|'))
-    print('2. | You want a challenge bu you dont want to look bad'.center(310, '-').center(1, '|'))
+    print('2. | You want a challenge but you dont want to look bad'.center(310, '-').center(1, '|'))
     print('3. | The obvious choice'.center(310, '-').center(1, '|'))
-    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print('4. | Had Enough?'.center(310, '-').center(1, '|'))
-    print(Fore.Red + ''.center(310, '-').center(1, '|'))
+    print(Fore.RED + ''.center(310, '-').center(1, '|'))
+            print(Style.RESET_ALL) 
 
 
 
