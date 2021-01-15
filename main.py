@@ -3,10 +3,6 @@ import time
 import os
 from colorama import Fore, Back, Style 
 
-temp_list = ['apple', 'banan', 'oranges']
-word = temp_list[random.randint(0,2)]
-letters = list(word)
-
 black = "\033[30m"
 grey = "\033[90m"
 red = "\033[91m"
@@ -27,10 +23,7 @@ def make_blanks(letters):
     global blanks
     blanks = []
     for i in range(len(letters)):
-        if i == ' ':
-            blanks.append(' ')
-        else:
-            blanks.append('_')
+        blanks.append('_')
     
     return blanks
     
@@ -54,7 +47,6 @@ def checker():
                 print('\n')
     
     print('congrats it was', blanks)
-make_blanks(letters)
 
 
 
@@ -136,8 +128,11 @@ def title():
 
         clear()
 
-        counterTwo += 1
 
+print(make_blanks((selectDif(int(input('dificulty: '))))))
+"""=======
+        counterTwo += 1
+"""
 
 loading()
 title()
