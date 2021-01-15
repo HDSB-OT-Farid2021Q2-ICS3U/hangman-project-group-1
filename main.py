@@ -143,9 +143,5 @@ loading()
 title()
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ac4cbd42e7a0a87a5265ddc2fd7ec6b83112946c
 
 
