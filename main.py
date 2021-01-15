@@ -2,10 +2,6 @@ import random
 import time
 import os
 
-temp_list = ['apple', 'banan', 'oranges']
-word = temp_list[random.randint(0,2)]
-letters = list(word)
-
 black = "\033[30m"
 grey = "\033[90m"
 red = "\033[91m"
@@ -26,10 +22,7 @@ def make_blanks(letters):
     global blanks
     blanks = []
     for i in range(len(letters)):
-        if i == ' ':
-            blanks.append(' ')
-        else:
-            blanks.append('_')
+        blanks.append('_')
     
     return blanks
     
@@ -53,7 +46,6 @@ def checker():
                 print('\n')
     
     print('congrats it was', blanks)
-make_blanks(letters)
 
 
 
@@ -106,7 +98,7 @@ def menu():
         time.sleep(1)
         clear()
 
-
+print(make_blanks((selectDif(int(input('dificulty: '))))))
 
 
 
