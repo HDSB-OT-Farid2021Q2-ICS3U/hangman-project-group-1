@@ -1,7 +1,7 @@
 import random
 import time
 import os
-# import msv
+import msvcrt
 from colorama import Fore, Back, Style 
 
 
@@ -54,7 +54,6 @@ def stillLetter(playerLetter):
     return howMany.count(playerLetter) > 0
 
 def checker(hangmanWord, player_input):
-    # while stillBlanks():
     """checks for a letter then if it is correct it replaces string"""
     if hangmanWord.count(player_input) == 0:
         print('try again')
@@ -126,7 +125,8 @@ def title():
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
-        if input() != None:
+        if msvcrt.kbhit():
+            print("\033[0m")
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -135,7 +135,8 @@ def title():
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
-        if input() != None:
+        if msvcrt.kbhit():
+            print("\033[0m")
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -144,7 +145,8 @@ def title():
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
-        if input() != None:
+        if msvcrt.kbhit():
+            print("\033[0m")
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -171,11 +173,11 @@ def menu():
 
 
 
-"""
+
 loading()
 title()
 menu()
-"""
+
 """
 randomWord = selectDif(1)
 make_blanks(randomWord)
