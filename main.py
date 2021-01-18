@@ -19,14 +19,14 @@ lightBlue = "\033[96m"
 def kill():
     os.abort()
 
-def make_blanks(letters):
-    """ takes ammount of letters and displays blanks"""
+def make_blanks(hangmanWord):
+    """ takes ammount of hangmanWord and displays blanks"""
     global blanks
     blanks = []
-    for i in letters:
+    for i in hangmanWord:
         blanks.append([i, False])
     """
-    for i in range(len(letters)):
+    for i in range(len(hangmanWord)):
         blanks.append('_')
     """
     # return blanks
@@ -47,26 +47,26 @@ def stillLetter(playerLetter):
     howMany = [x[0] for x in blanks if x[1] == False]
     return howMany.count(playerLetter) > 0
 
-def checker(letters):
-    while stillBlanks():
-        """checks for a letter then if it is correct it replaces string"""
-        # print(blanks)
-        player_input = input('guess a letter: ')
-        # print(letters.count(player_input))
-        if letters.count(player_input) == 0:
-            print('try again')
-        else: 
-            lastFoundIndex = 0
-            while stillLetter(player_input):
-                lastFoundIndex = letters.index(player_input, lastFoundIndex)
-                blanks[lastFoundIndex][1] = True
-                lastFoundIndex += 1
-                #print(letters.count(player_input), blanks.count(player_input))
-                # index_num = letters.index(player_input)
-                # blanks[index_num] = (player_input)
-                # letters[index_num] = False
-                # print(letters)
-                # print('\n')
+def checker(hangmanWord, player_input):
+    # while stillBlanks():
+    """checks for a letter then if it is correct it replaces string"""
+    # print(blanks)
+    # player_input = input('guess a letter: ')
+    # print(hangmanWord.count(player_input))
+    if hangmanWord.count(player_input) == 0:
+        print('try again')
+    else: 
+        lastFoundIndex = 0
+        while stillLetter(player_input):
+            lastFoundIndex = hangmanWord.index(player_input, lastFoundIndex)
+            blanks[lastFoundIndex][1] = True
+            lastFoundIndex += 1
+            # print(hangmanWord.count(player_input), blanks.count(player_input))
+            # index_num = hangmanWord.index(player_input)
+            # blanks[index_num] = (player_input)
+            # hangmanWord[index_num] = False
+            # print(hangmanWord)
+            # print('\n')
         printBlanks()
     print('congrats it was: ')
     printBlanks()
@@ -187,6 +187,6 @@ checker(randomWord)
 
 """
 word = selectDif(int(input('dificulty: ')))
-letters = list(word)
-print(make_blanks(letters))
+hangmanWord = list(word)
+print(make_blanks(hangmanWord))
 """
