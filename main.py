@@ -3,10 +3,10 @@ import time
 import os
 import msvcrt
 from colorama import Fore, Back, Style 
-
 from tkinter import*
 root =Tk()
 man = [[250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
+
 def create_canvas():
     global canvas
     global label
@@ -216,13 +216,14 @@ loading()
 title()
 menu()
 """
-
+"""
 randomWord = selectDif(2)
 make_blanks(randomWord)
 while stillBlanks():
     print(printBlanks())
     checker(randomWord, getPlayerInput())
 print(f'congrats it was: {randomWord}')
+"""
 
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
