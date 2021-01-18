@@ -1,6 +1,7 @@
 import random
 import time
 import os
+# import msv
 from colorama import Fore, Back, Style 
 
 
@@ -34,12 +35,15 @@ def make_blanks(hangmanWord):
     # return blanks
     
 def printBlanks():
+    userProgress = ''
     for i in blanks:
         if i[1] == False:
-            print('_', end='')
+            # print('_', end='')
+            userProgress += '_ '
         else:
-            print(i[0], end='')
-    print()
+            # print(i[0], end='')
+            userProgress += f'{i[0]} '
+    return userProgress
 
 def stillBlanks():
     areThereStill = [x[1] for x in blanks]
@@ -52,9 +56,6 @@ def stillLetter(playerLetter):
 def checker(hangmanWord, player_input):
     # while stillBlanks():
     """checks for a letter then if it is correct it replaces string"""
-    # print(blanks)
-    # player_input = input('guess a letter: ')
-    # print(hangmanWord.count(player_input))
     if hangmanWord.count(player_input) == 0:
         print('try again')
     else: 
@@ -63,15 +64,6 @@ def checker(hangmanWord, player_input):
             lastFoundIndex = hangmanWord.index(player_input, lastFoundIndex)
             blanks[lastFoundIndex][1] = True
             lastFoundIndex += 1
-            # print(hangmanWord.count(player_input), blanks.count(player_input))
-            # index_num = hangmanWord.index(player_input)
-            # blanks[index_num] = (player_input)
-            # hangmanWord[index_num] = False
-            # print(hangmanWord)
-            # print('\n')
-        printBlanks()
-    print('congrats it was: ')
-    printBlanks()
 
 
 
@@ -106,16 +98,16 @@ def loading():
     clear = lambda: os.system('cls')
     clear()
     print('Loading')
-    time.sleep(1)
+    time.sleep(0.5)
     clear()
     print('Loading.')
-    time.sleep(1)   
+    time.sleep(0.5)   
     clear()
     print('Loading..')
-    time.sleep(1)   
+    time.sleep(0.5)   
     clear()
     print('Loading...')
-    time.sleep(1)   
+    time.sleep(0.5)   
     clear()
     while counterOne != 3:
         counterOne += 1
@@ -134,6 +126,8 @@ def title():
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
+        if input() != None:
+            break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
 
@@ -141,6 +135,8 @@ def title():
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
+        if input() != None:
+            break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
 
@@ -148,6 +144,8 @@ def title():
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
+        if input() != None:
+            break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
 
@@ -173,22 +171,18 @@ def menu():
 
 
 
-
 """
 loading()
 title()
 menu()
 """
-# loading()
-# title()
+"""
 randomWord = selectDif(1)
 make_blanks(randomWord)
-checker(randomWord)
+while stillBlanks():
+    print(printBlanks())
+    checker(randomWord, input('What you try: '))
+print(f'congrats it was: {randomWord}')
+"""
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
-
-"""
-word = selectDif(int(input('dificulty: ')))
-hangmanWord = list(word)
-print(make_blanks(hangmanWord))
-"""
