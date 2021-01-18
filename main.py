@@ -5,7 +5,7 @@ import msvcrt
 from colorama import Fore, Back, Style 
 from tkinter import*
 root =Tk()
-man = [[250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
+man = [[100,400,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
 
 def create_canvas():
     global canvas
@@ -200,14 +200,20 @@ def menu():
 
 
 
-def draw_partofman(turns_lost):
-    """draws part of stickman, called when a turn is lost"""
-    if turns_lost != 5:
-        canvas.create_line(man[turns_lost], fill = 'white')  
-        print(turns_lost)
-        print(man[turns_lost])
+def loss(lost_turns):
+    if lost_turns > 2:
+        wide = 5
+        col = 'white'
+    else: 
+        wide = 10
+        col = 'saddlebrown'
+
+    if lost_turns != 3:
+        canvas.create_line(man[lost_turns], fill = col, width = wide)  
+        print(lost_turns)
+        print(man[lost_turns])
     else:
-        canvas.create_oval(200,200,300,100)
+        canvas.create_oval(man[lost_turns], fill = col, width = wide)
     root.update()
 
 
@@ -227,4 +233,5 @@ print(f'congrats it was: {randomWord}')
 
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
+#this should be the very last part of the code. V
 root.mainloop()
