@@ -4,7 +4,6 @@ import os
 from colorama import Fore, Back, Style 
 
 
-
 black = "\033[30m"
 grey = "\033[90m"
 red = "\033[91m"
@@ -13,6 +12,9 @@ orange = "\033[93m"
 blue = "\033[94m"
 purple = "\033[95m"
 lightBlue = "\033[96m"
+
+
+wordProgress = []
 
 # @The-Chef123 TODO create the main menu
 # @mythos341 TODO make the text stuff work
@@ -34,13 +36,20 @@ def make_blanks(hangmanWord):
     # return blanks
     
 def printBlanks():
+    hangmandWordList = []
+    under = '_'
+    for i in blanks:
+        if i[1] == False:
+           under.append(wordProgress)
+    print(wordProgress)
+"""
     for i in blanks:
         if i[1] == False:
             print('_', end='')
+            print(' ', end='')
         else:
             print(i[0], end='')
-    print()
-
+"""
 def stillBlanks():
     areThereStill = [x[1] for x in blanks]
     return False in areThereStill
@@ -129,29 +138,30 @@ def loading():
 def title():
 
     counterTwo = 0
-    while counterTwo != 3:
+    while counterTwo != 3: #Loop to run through title screen animation 3 times
         clear = lambda: os.system('cls')
-        print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
-        print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
-        print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
+        print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
+        print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(275,'/'))
+        print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
+        time.sleep(0.5) #This scene is puased for 0.5 seconds before moving onto the next bit of the animation.
+        print(Style.RESET_ALL) 
+
+        clear()
+        print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
+        print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(275,'|'))
+        print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
         time.sleep(0.5)
         print(Style.RESET_ALL) 
 
         clear()
-        print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
-        print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
-        print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(275,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))   
         time.sleep(0.5)
         print(Style.RESET_ALL) 
 
         clear()
-        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
-        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
-        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
-        time.sleep(0.5)
-        print(Style.RESET_ALL) 
-
-        clear()
+        counterTwo += 1
 
 
 """=======
@@ -159,17 +169,19 @@ def title():
 
 
 def menu():
-    print(Fore.RED + ''.center(310, '-').center(1, '|'))
-    print('Stickman 1986'.center(310, '-').center(1, '|'))
-    print(Fore.RED + ''.center(310, '-').center(1, '|'))
-    print('CHOOSE YOUR DIFFICULTY'.center(310, '-').center(1, '|'))
-    print('1. | I dont like challenge'.center(310, '-').center(1, '|'))
-    print('2. | You want a challenge but you dont want to look bad'.center(310, '-').center(1, '|'))
-    print('3. | The obvious choice'.center(310, '-').center(1, '|'))
-    print(Fore.RED + ''.center(310, '-').center(1, '|'))
-    print('4. | Had Enough?'.center(310, '-').center(1, '|'))
-    print(Fore.RED + ''.center(310, '-').center(1, '|'))
+    #Prints the difficulty menu
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))
+    print('Stickman 1986'.center(275, '-').center(1, '|'))
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))
+    print('CHOOSE YOUR DIFFICULTY'.center(275, '-').center(1, '|'))
+    print('1. | I dont like challenge'.center(275, '-').center(1, '|'))
+    print('2. | You want a challenge but you dont want to look bad'.center(275, '-').center(1, '|'))
+    print('3. | The obvious choice'.center(275, '-').center(1, '|'))
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))
+    print('4. | Had Enough?'.center(275, '-').center(1, '|'))
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))
     print(Style.RESET_ALL) 
+    time.sleep(0.5)
 
 
 
@@ -179,8 +191,8 @@ loading()
 title()
 menu()
 """
-# loading()
-# title()
+loading()
+title()
 randomWord = selectDif(1)
 make_blanks(randomWord)
 checker(randomWord)
