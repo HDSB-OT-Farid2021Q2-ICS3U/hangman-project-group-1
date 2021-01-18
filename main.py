@@ -14,7 +14,8 @@ orange = "\033[93m"
 blue = "\033[94m"
 purple = "\033[95m"
 lightBlue = "\033[96m"
-
+global triedChars
+triedChars = []
 # @The-Chef123 TODO create the main menu
 # @mythos341 TODO make the text stuff work
 #Check if the person uses mac/repl or windows for clear statements cls vs clear()
@@ -27,7 +28,10 @@ def make_blanks(hangmanWord):
     global blanks
     blanks = []
     for i in hangmanWord:
-        blanks.append([i, False])
+        if ' ' == i:
+            blanks.append([i, True])
+        else:
+            blanks.append([i, False])
     """
     for i in range(len(hangmanWord)):
         blanks.append('_')
@@ -35,21 +39,22 @@ def make_blanks(hangmanWord):
     # return blanks
     
 def printBlanks():
+    """Returns the string of the players progress"""
     userProgress = ''
     for i in blanks:
         if i[1] == False:
-            # print('_', end='')
             userProgress += '_ '
         else:
-            # print(i[0], end='')
-            userProgress += f'{i[0]} '
+            userProgress += f'{i[0]}'
     return userProgress
 
 def stillBlanks():
+    """Checks if there are still undiscovered letters"""
     areThereStill = [x[1] for x in blanks]
     return False in areThereStill
 
 def stillLetter(playerLetter):
+    """Checks if there are any undescovered of a certain character"""
     howMany = [x[0] for x in blanks if x[1] == False]
     return howMany.count(playerLetter) > 0
 
@@ -64,6 +69,18 @@ def checker(hangmanWord, player_input):
             blanks[lastFoundIndex][1] = True
             lastFoundIndex += 1
 
+def getPlayerInput():
+    while True:
+        usr = input('Choose a character: ')
+        if bool(usr) == False:
+            print('You must enter a character')
+        elif len(usr) > 1:
+            print('You can only enter one character')
+        elif usr in triedChars:
+            print(f'You have already tried "{usr}"')
+        else:
+            triedChars.append(usr)
+            return usr
 
 
 
@@ -173,18 +190,18 @@ def menu():
 
 
 
-
+"""
 loading()
 title()
 menu()
-
 """
-randomWord = selectDif(1)
+
+randomWord = selectDif(2)
 make_blanks(randomWord)
 while stillBlanks():
     print(printBlanks())
-    checker(randomWord, input('What you try: '))
+    checker(randomWord, getPlayerInput())
 print(f'congrats it was: {randomWord}')
-"""
+
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
