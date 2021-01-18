@@ -4,17 +4,19 @@ import os
 import msvcrt
 from colorama import Fore, Back, Style 
 from tkinter import*
-root =Tk()
+
+window = Tk()
 man = [[250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
 
 def create_canvas():
     global canvas
     global label
-    canvas =  Canvas(root, width=500, height=500, bg= 'black')
+    canvas = Canvas(window, width=500, height=500, bg= 'black')
     canvas.pack()
-    label = Label(root, text="This is where the stickman will be drawn")
-    label.place(height=50, width= 500)
-    root.title('HANGMAN')
+    label = Label(window, text="This is where the stickman will be drawn")
+    label.place(height=40, width= 500)
+
+    window.title('HANGMAN')
 
 create_canvas()
 
@@ -208,7 +210,7 @@ def draw_partofman(turns_lost):
         print(man[turns_lost])
     else:
         canvas.create_oval(200,200,300,100)
-    root.update()
+    window.update()
 
 
 """
@@ -224,7 +226,7 @@ while stillBlanks():
     checker(randomWord, getPlayerInput())
 print(f'congrats it was: {randomWord}')
 """
-
+draw_partofman(2)
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
-root.mainloop()
+window.mainloop()
