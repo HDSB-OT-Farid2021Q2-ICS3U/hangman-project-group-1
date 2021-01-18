@@ -4,7 +4,19 @@ import os
 import msvcrt
 from colorama import Fore, Back, Style 
 
+from tkinter import*
+root =Tk()
+man = [[250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
+def create_canvas():
+    global canvas
+    global label
+    canvas =  Canvas(root, width=500, height=500, bg= 'black')
+    canvas.pack()
+    label = Label(root, text="This is where the stickman will be drawn")
+    label.place(height=50, width= 500)
+    root.title('HANGMAN')
 
+create_canvas()
 
 black = "\033[30m"
 grey = "\033[90m"
@@ -59,6 +71,7 @@ def stillLetter(playerLetter):
     return howMany.count(playerLetter) > 0
 
 def checker(hangmanWord, player_input):
+    # while stillBlanks():
     """checks for a letter then if it is correct it replaces string"""
     if hangmanWord.count(player_input) == 0:
         print('try again')
@@ -142,8 +155,7 @@ def title():
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(310,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(310,'/'))
-        if msvcrt.kbhit():
-            print("\033[0m")
+        if input() != None:
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -152,8 +164,7 @@ def title():
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(310,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(310,'|'))
-        if msvcrt.kbhit():
-            print("\033[0m")
+        if input() != None:
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -162,8 +173,7 @@ def title():
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(310,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(310,'\\'))   
-        if msvcrt.kbhit():
-            print("\033[0m")
+        if input() != None:
             break
         time.sleep(0.5)
         print(Style.RESET_ALL) 
@@ -190,6 +200,17 @@ def menu():
 
 
 
+def draw_partofman(turns_lost):
+    """draws part of stickman, called when a turn is lost"""
+    if turns_lost != 5:
+        canvas.create_line(man[turns_lost], fill = 'white')  
+        print(turns_lost)
+        print(man[turns_lost])
+    else:
+        canvas.create_oval(200,200,300,100)
+    root.update()
+
+
 """
 loading()
 title()
@@ -205,3 +226,4 @@ print(f'congrats it was: {randomWord}')
 
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
+root.mainloop()
