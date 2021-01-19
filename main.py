@@ -168,6 +168,9 @@ def loading():
         clear()
         time.sleep(0.5)
 
+def cls():
+    os.system('cls')
+
 def title():
 
     counterTwo = 0
@@ -177,33 +180,31 @@ def title():
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(275,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
         if msvcrt.kbhit():
-            clear()
-            print("\033[0m")
+            print(Style.RESET_ALL)
             break
         time.sleep(0.5)
-        print(Style.RESET_ALL) 
+        print(Style.RESET_ALL)
+         
 
         clear()
         print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(275,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
         if msvcrt.kbhit():
-            clear()
-            print("\033[0m")
+            print(Style.RESET_ALL)
             break
-        time.sleep(0.5)
-        print(Style.RESET_ALL) 
+        time.sleep(0.5) 
+        print(Style.RESET_ALL)
 
         clear()
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(275,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))   
         if msvcrt.kbhit():
-            clear()
-            print("\033[0m")
+            print(Style.RESET_ALL)
             break
         time.sleep(0.5)
-        print(Style.RESET_ALL) 
+        print(Style.RESET_ALL)
 
         clear()
 
@@ -279,6 +280,8 @@ print(triedChars)
 """
 loading()
 title()
+cls()
+# print("\033[0mradnom")
 menu()
 usrDiffi = getPlayerChoice()
 randomWord = selectDif(usrDiffi)
@@ -296,13 +299,14 @@ while livesLost < 9:
         window.update()
     userInput.delete(0, tkinter.END)
     recent = recent[0]
-    triedChars.append(recent)
     if checker(randomWord, recent):
         pass
-    elif recent in triedChars:
+    elif recent in triedChars: # fix this
         print('You have already tried that letter')
+        print(triedChars)
     else:
         livesLost -= 1
+    triedChars.append(recent)
 
 
 
