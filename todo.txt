@@ -3,3 +3,6 @@
 - Maybe not allow repeats of the correct charsters?
 - Make easy easier(I literally can't do it, should be easier)
 - Make the game finish(creat a a win/lose scenario)
+- How is the marketing video going
+- Do a reflection
+- Comment/document the code
