@@ -234,7 +234,7 @@ hearing
 height
 high
 school
-husband's
+husband
 name
 junior
 college
@@ -494,7 +494,7 @@ swamp
 cruise
 wedding
 cake
-crow's
+crow
 nest
 macho
 drain
@@ -547,7 +547,6 @@ applause
 wax
 sheep
 dog
-s'mores
 plow
 runt
 horse
