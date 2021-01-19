@@ -118,19 +118,6 @@ def formatedTriedChars():
     noRepeats = [i for i in noRepeats if i not in [x[0] for x in blanks]]
     return ' '.join(noRepeats)
 
-def getPlayerInput():
-    while True:
-        usr = input('Choose a character: ')
-        if bool(usr) == False:
-            print('You must enter a character')
-        elif len(usr) > 1:
-            print('You can only enter one character')
-        elif usr in triedChars:
-            print(f'You have already tried "{usr}"')
-        else:
-            triedChars.append(usr)
-            return usr
-
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
     """enter difficullty, returns word(s) of that difficulty"""
     if difNum == 1:
@@ -276,26 +263,6 @@ def loss(lost_turns):
 
 
 
-"""
-loading()
-title()
-menu()
-"""
-"""
-randomWord = selectDif(2)
-make_blanks(randomWord)
-while stillBlanks():
-    print(printBlanks())
-    checker(randomWord, getPlayerInput())
-print(f'congrats it was: {randomWord}')
-"""
-"""
-for i in range (9):   #this is a test of gui
-    letter = input('temporary replacement for where false letter input: ')
-    triedChars.append(letter)
-    loss(i)
-print(triedChars)
-"""
 loading()
 title()
 clear_screen()
