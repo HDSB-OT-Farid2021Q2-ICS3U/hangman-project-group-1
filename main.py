@@ -168,8 +168,6 @@ def loading():
         clear()
         time.sleep(0.5)
 
-def cls():
-    os.system('cls')
 
 def title():
 
@@ -282,7 +280,7 @@ print(triedChars)
 """
 loading()
 title()
-cls()
+os.system('cls')
 # print("\033[0mradnom")
 menu()
 usrDiffi = getPlayerChoice()
@@ -311,6 +309,4 @@ while livesLost < 9:
     triedChars.append(recent)
 
 
-
-#this should be the very last part of the code. V
 
