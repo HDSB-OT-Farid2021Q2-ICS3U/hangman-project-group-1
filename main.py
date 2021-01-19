@@ -235,7 +235,7 @@ while stillBlanks():
     checker(randomWord, getPlayerInput())
 print(f'congrats it was: {randomWord}')
 """
-for i in range (9):
+for i in range (9):   #this is a test of gui
     letter = input('temporary replacement for where false letter input: ')
     triedChars.append(letter)
     loss(i)
