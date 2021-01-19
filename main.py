@@ -135,7 +135,7 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
         wordDict = 'hard.txt'
         words = open(wordDict, 'rt')
     else:
-        print(f'You tried to select difficulty {difNum}')# What if they enter '2     '  IDK prolly be fine
+        print(f'You tried to select difficulty {difNum}')
         kill()
     wordChoice = random.randrange(0, len(list(words)))
     words.close()
@@ -177,6 +177,7 @@ def title():
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1986'.center(275,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
         if msvcrt.kbhit():
+            clear()
             print("\033[0m")
             break
         time.sleep(0.5)
@@ -187,6 +188,7 @@ def title():
         print(Fore.YELLOW+ Back.RED + 'STICKMAN GAME 1986'.center(275,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
         if msvcrt.kbhit():
+            clear()
             print("\033[0m")
             break
         time.sleep(0.5)
@@ -197,6 +199,7 @@ def title():
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(275,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))   
         if msvcrt.kbhit():
+            clear()
             print("\033[0m")
             break
         time.sleep(0.5)
@@ -209,10 +212,10 @@ def getPlayerChoice():
         playerIn = input('What is your choice: ')
         if playerIn.isnumeric() == False:
             print('Your choice must be a number between 1-4')
-        elif int(playerIn) < 1 or int(playerIn) > 3:
-            print('Your choice is not in the range 1-4')
         elif int(playerIn) == 4:
             kill()
+        elif int(playerIn) < 1 or int(playerIn) > 3:
+            print('Your choice is not in the range 1-4')
         else:
             try:
                 return int(playerIn)
@@ -277,8 +280,9 @@ print(triedChars)
 loading()
 title()
 menu()
-
-randomWord = selectDif(getPlayerChoice())
+usrDiffi = getPlayerChoice()
+randomWord = selectDif(usrDiffi)
+# time.sleep(5)
 # randomWord = 'i know this word'
 make_blanks(randomWord)
 livesLost = 0
@@ -295,6 +299,8 @@ while livesLost < 9:
     triedChars.append(recent)
     if checker(randomWord, recent):
         pass
+    elif recent in triedChars:
+        print('You have already tried that letter')
     else:
         livesLost -= 1
 
