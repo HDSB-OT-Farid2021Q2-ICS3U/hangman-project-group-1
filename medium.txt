@@ -401,7 +401,6 @@ vitamin
 half
 cardboard
 oar
-baby-sitter
 drip
 shampoo
 point
@@ -754,7 +753,6 @@ rolly
 polly
 popcorn
 telephone
-yo-yo
 seahorse
 snowflake
 spine
