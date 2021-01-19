@@ -268,13 +268,7 @@ title()
 clear_screen()
 menu()
 usrDiffi = getPlayerChoice()
-<<<<<<< HEAD
-# randomWord = selectDif(usrDiffi)
-# time.sleep(5)
-randomWord = 'i know this word'
-=======
 randomWord = selectDif(usrDiffi)
->>>>>>> 326689951ed5b5d0df52b44b7321c3180487d64d
 make_blanks(randomWord)
 livesLost = 0
 while livesLost < 9:
@@ -317,10 +311,6 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-<<<<<<< HEAD
-time.sleep(1)
-=======
->>>>>>> 326689951ed5b5d0df52b44b7321c3180487d64d
 
 while bool(replayGame) == False:
     recent = ''
