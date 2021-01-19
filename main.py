@@ -4,14 +4,8 @@ import os
 import msvcrt
 from colorama import Fore, Back, Style 
 from tkinter import*
-<<<<<<< HEAD
-
-window = Tk()
-man = [[250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
-=======
-root =Tk()
+window =Tk()
 man = [[100,400,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
->>>>>>> 0d5ba63eed48ae278c1aedd269ea316e2ef4d7f8
 
 def create_canvas():
     global canvas
