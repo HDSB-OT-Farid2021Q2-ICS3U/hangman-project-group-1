@@ -32,7 +32,7 @@ the_word.set('SELECT DIFFICULTY FIRST')
 label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
-create_canvas()
+
 string_var = StringVar()
 string_var.set('')
 label_tries = Label(window, font=(16), textvariable = string_var)
@@ -197,7 +197,7 @@ def title():
 
         clear()
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))
-        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1986'.center(275,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1988'.center(275,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))   
         if msvcrt.kbhit():
             print(Style.RESET_ALL)
