@@ -111,7 +111,7 @@ def formatedTriedChars():
     noRepeats = sorted(triedChars)
     noRepeats = list(dict.fromkeys(noRepeats))
     noRepeats = [i for i in noRepeats if i not in [x[0] for x in blanks]]
-    return noRepeats
+    return str(noRepeats)
 
 def getPlayerInput():
     while True:
@@ -252,7 +252,7 @@ def loss(lost_turns):
     if lost_turns != 4:
         canvas.create_line(man[lost_turns - 1], fill = col, width = wide)  
         print(lost_turns)
-        print(man[lost_turns])
+        # print(man[lost_turns])
     else:
         canvas.create_oval(man[lost_turns - 1], fill = col, width = wide)
     
@@ -293,7 +293,6 @@ make_blanks(randomWord)
 livesLost = 0
 while livesLost < 10:
     the_word.set(printBlanks())
-    loss(livesLost)
     recent = ''
     while bool(recent) == False:
         recent = userInput.get()
@@ -308,19 +307,41 @@ while livesLost < 10:
     elif recent in triedChars:
         print('You have already tried that letter')
         print(triedChars)
+        print(formatedTriedChars())
     else:
         triedChars.append(recent)
         livesLost += 1
     if stillBlanks() == False:
+        # loss(livesLost)
+        print('you win')
         win = True
+        break
 else:
+    # loss(livesLost)
+    print('you lose')
     win = False
 
+
 if win:
-    string_var = 'YOU WIN!!!'
+    string_var.set('YOU WIN!!!')
 else:
-    string_var = 'YOU LOSE'
-    the_word = 'The word was: ' + randomWord
+    string_var.set('YOU LOSE')
+    the_word.set('The word was: ' + randomWord)
+window.update()
+replayGame = ''
+time.sleep(5)
+"""
+while bool(replayGame) == False:
+    replayGame = msvcrt.getch()
+    if 'y' in replayGame.lower():
+        restart_program()
+    elif 'n' in replayGame.lower():
+        break
+    else:
+        print('must chose yes or no')
+
+"""
+# window.mainloop()
 
     
 
