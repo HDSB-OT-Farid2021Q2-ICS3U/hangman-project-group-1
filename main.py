@@ -1,11 +1,17 @@
 import random
 import time
 import os
+import sys
 import msvcrt
 from colorama import Fore, Back, Style 
 from tkinter import*
-window =Tk()
-man = [[100,400,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
+
+window = Tk()
+man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250]]
+string_var = StringVar() 
+string_var.set('default')
+label_tries = Label(window, font=(16), textvariable = string_var)
+label_tries.pack(side=BOTTOM)
 
 def create_canvas():
     global canvas
@@ -18,6 +24,13 @@ def create_canvas():
     window.title('HANGMAN')
 
 create_canvas()
+
+def restart_program():
+    """Restarts the current program."""
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+restart_button = Button(window, text='RESTART', command=restart_program)
+restart_button.pack(side=TOP)
 
 black = "\033[30m"
 grey = "\033[90m"
@@ -96,9 +109,6 @@ def getPlayerInput():
             triedChars.append(usr)
             return usr
 
-
-
-
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
     """enter difficullty, returns word(s) of that difficulty"""
     if difNum == 1:
@@ -120,8 +130,6 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
         if i == wordChoice:
             words.close()
             return line.strip('\n')
-
-
 
 def loading():
     counterOne = 0
@@ -145,8 +153,6 @@ def loading():
         time.sleep(1)
         clear()
         time.sleep(0.5)
-
-
 
 def title():
 
@@ -181,11 +187,6 @@ def title():
 
         clear()
 
-
-"""=======
-        counterTwo += 1"""
-
-
 def menu():
     print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print('Stickman 1986'.center(310, '-').center(1, '|'))
@@ -199,9 +200,8 @@ def menu():
     print(Fore.RED + ''.center(310, '-').center(1, '|'))
     print(Style.RESET_ALL) 
 
-
-
 def loss(lost_turns):
+    """draws stickman from list of moves sequencially per lost turn"""
     if lost_turns > 2:
         wide = 5
         col = 'white'
@@ -215,7 +215,11 @@ def loss(lost_turns):
         print(man[lost_turns])
     else:
         canvas.create_oval(man[lost_turns], fill = col, width = wide)
+    
+    string_var.set(sorted(triedChars)) #assuming tried chars is list of incorect
+    
     window.update()
+
 
 
 """
@@ -231,7 +235,12 @@ while stillBlanks():
     checker(randomWord, getPlayerInput())
 print(f'congrats it was: {randomWord}')
 """
-loss(2)
+for i in range (9):   #this is a test of gui
+    letter = input('temporary replacement for where false letter input: ')
+    triedChars.append(letter)
+    loss(i)
+print(triedChars)
+
 # Put your discord usernames here: Stick#1441, Freddrake 400#0748
 
 #this should be the very last part of the code. V
