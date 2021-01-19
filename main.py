@@ -114,7 +114,7 @@ def formatedTriedChars():
     noRepeats = sorted(triedChars)
     noRepeats = list(dict.fromkeys(noRepeats))
     noRepeats = [i for i in noRepeats if i not in [x[0] for x in blanks]]
-    return str(noRepeats)
+    return ' '.join(noRepeats)
 
 def getPlayerInput():
     while True:
@@ -244,7 +244,7 @@ def menu():
 def loss(lost_turns):
     """draws stickman from list of moves sequencially per lost turn"""
     if lost_turns == 0:
-        return
+        pass
     if lost_turns > 3:
         wide = 5
         col = 'white'
@@ -296,6 +296,7 @@ make_blanks(randomWord)
 livesLost = 0
 while livesLost < 10:
     the_word.set(printBlanks())
+    loss(livesLost)
     recent = ''
     while bool(recent) == False:
         recent = userInput.get()
