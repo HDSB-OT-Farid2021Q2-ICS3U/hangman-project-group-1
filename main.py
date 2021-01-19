@@ -6,6 +6,8 @@ import msvcrt
 import tkinter # for some reason it need both imports of tkinter
 from colorama import Fore, Back, Style 
 from tkinter import*
+from platform   import system as system_name  # Returns the system/OS name
+from subprocess import call   as system_call  # Execute a shell command
 
 black = "\033[30m"
 grey = "\033[90m"
@@ -174,6 +176,14 @@ def loading():
         clear()
         time.sleep(0.5)
 
+def clear_screen():
+    """
+    Clears the terminal screen.
+    """
+    # Clear screen command as function of OS
+    command = 'cls' if system_name().lower()=='windows' else 'clear'
+    # Action
+    os.system(command)
 
 def title():
 
@@ -288,12 +298,10 @@ print(triedChars)
 """
 loading()
 title()
-os.system('cls')
+clear_screen()
 menu()
 usrDiffi = getPlayerChoice()
-# randomWord = selectDif(usrDiffi)
-# time.sleep(5)
-randomWord = 'i know this word'
+randomWord = selectDif(usrDiffi)
 make_blanks(randomWord)
 livesLost = 0
 while livesLost < 9:
@@ -336,7 +344,6 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-time.sleep(1)
 
 while bool(replayGame) == False:
     recent = ''
@@ -351,10 +358,5 @@ while bool(replayGame) == False:
         break
     else:
         print('must chose yes or no')
-
-
-# window.mainloop()
-
-    
 
 
