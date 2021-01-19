@@ -28,13 +28,13 @@ window = Tk()# make the window
 window.attributes('-topmost', True)
 window.title('HANGMAN')
 the_word = StringVar()
-the_word.set('default word')
+the_word.set('WORD TO GUESS WILL BE HERE')
 label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
 create_canvas()
 string_var = StringVar()
-string_var.set('default')
+string_var.set('USED LETTERS WILL BE HERE')
 label_tries = Label(window, font=(16), textvariable = string_var)
 userInput = Entry(window)
 userInput.pack(side=BOTTOM)
@@ -237,19 +237,21 @@ def menu():
 
 def loss(lost_turns):
     """draws stickman from list of moves sequencially per lost turn"""
-    if lost_turns > 2:
+    if lost_turns == 0:
+        return
+    if lost_turns > 3:
         wide = 5
         col = 'white'
     else: 
         wide = 10
         col = 'saddlebrown'
 
-    if lost_turns != 3:
-        canvas.create_line(man[lost_turns], fill = col, width = wide)  
+    if lost_turns != 4:
+        canvas.create_line(man[lost_turns - 1], fill = col, width = wide)  
         print(lost_turns)
         print(man[lost_turns])
     else:
-        canvas.create_oval(man[lost_turns], fill = col, width = wide)
+        canvas.create_oval(man[lost_turns - 1], fill = col, width = wide)
     
     string_var.set(formatedTriedChars()) #assuming tried chars is list of incorect
     window.update()
