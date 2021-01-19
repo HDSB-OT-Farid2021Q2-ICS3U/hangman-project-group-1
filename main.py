@@ -310,7 +310,5 @@ while livesLost < 9:
 
 
 
-# Put your discord usernames here: Stick#1441, Freddrake 400#0748
-
 #this should be the very last part of the code. V
 window.mainloop()
