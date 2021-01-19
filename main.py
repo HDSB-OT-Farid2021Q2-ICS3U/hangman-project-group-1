@@ -54,6 +54,8 @@ restart_button.pack(side=TOP)
 
 
 def kill():
+    window.destroy()
+    time.sleep(2)
     os.abort()
 
 def make_blanks(hangmanWord):
@@ -309,6 +311,17 @@ while livesLost < 10:
     else:
         triedChars.append(recent)
         livesLost += 1
+    if stillBlanks() == False:
+        win = True
+else:
+    win = False
+
+if win:
+    string_var = 'YOU WIN!!!'
+else:
+    string_var = 'YOU LOSE'
+    the_word = 'The word was: ' + randomWord
+
     
 
 
