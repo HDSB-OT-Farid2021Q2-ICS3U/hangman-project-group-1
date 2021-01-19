@@ -28,13 +28,13 @@ window = Tk()# make the window
 window.attributes('-topmost', True)
 window.title('HANGMAN')
 the_word = StringVar()
-the_word.set('WORD TO GUESS WILL BE HERE')
+the_word.set('SELECT DIFFICULTY FIRST')
 label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
 create_canvas()
 string_var = StringVar()
-string_var.set('USED LETTERS WILL BE HERE')
+string_var.set('')
 label_tries = Label(window, font=(16), textvariable = string_var)
 userInput = Entry(window)
 userInput.pack(side=BOTTOM)
@@ -43,9 +43,8 @@ label_tries.pack(side=BOTTOM)
 
 def restart_program():
     """Restarts the current program."""
-    python = sys.executable
-    # os.execl(python, python, * sys.argv)
-    os.execl('runme.sh', '')
+    window.destroy()
+    os.system('py main.py')
 
 
 restart_button = Button(window, text='RESTART', command=restart_program)
@@ -283,7 +282,6 @@ print(triedChars)
 loading()
 title()
 os.system('cls')
-# print("\033[0mradnom")
 menu()
 usrDiffi = getPlayerChoice()
 randomWord = selectDif(usrDiffi)
@@ -300,22 +298,17 @@ while livesLost < 10:
         time.sleep(0.01)
         window.update()
     userInput.delete(0, tkinter.END)
-    recent = recent[0]
+    recent = recent[0].lower()
     if checker(randomWord, recent):
         pass
-    elif recent in triedChars: # fix this
+    elif recent.isalpha() == False:
+        print('No numbers/special characters')
+    elif recent in triedChars:
         print('You have already tried that letter')
         print(triedChars)
     else:
+        triedChars.append(recent)
         livesLost += 1
-    triedChars.append(recent)
-
-    if livesLost > 8:
-        time.sleep(1)
-        print('BRUH U LOSE')
-
-
-window.mainloop()
-
+    
 
 
