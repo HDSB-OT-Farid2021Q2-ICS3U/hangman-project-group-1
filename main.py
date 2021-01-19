@@ -170,7 +170,7 @@ def title():
 
 def menu():
     #Prints the difficulty menu
-    print(Fore.RED + ''.center(275, '-').center(1, '|'))
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))#Sets the text as red
     print('Stickman 1986'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
     print('CHOOSE YOUR DIFFICULTY'.center(275, '-').center(1, '|'))
