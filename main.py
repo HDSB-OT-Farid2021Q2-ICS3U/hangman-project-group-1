@@ -310,7 +310,8 @@ while livesLost < 10:
         livesLost += 1
     triedChars.append(recent)
 
-    if livesLost > 9:
+    if livesLost > 8:
+        time.sleep(1)
         print('BRUH U LOSE')
 
 
