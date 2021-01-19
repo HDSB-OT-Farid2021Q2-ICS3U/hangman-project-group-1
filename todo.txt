@@ -1,0 +1,5 @@
+- I don't want to see the correct characters on the bottom (Complete)
+- either make double chars illegal or unable to happen(just delte all but first) (Complete) 
+- Maybe not allow repeats of the correct charsters?
+- Make easy easier(I literally can't do it, should be easier)
+- Make the game finish(creat a a win/lose scenario)
