@@ -291,12 +291,12 @@ title()
 os.system('cls')
 menu()
 usrDiffi = getPlayerChoice()
-randomWord = selectDif(usrDiffi)
+# randomWord = selectDif(usrDiffi)
 # time.sleep(5)
-# randomWord = 'i know this word'
+randomWord = 'i know this word'
 make_blanks(randomWord)
 livesLost = 0
-while livesLost < 10:
+while livesLost < 9:
     the_word.set(printBlanks())
     loss(livesLost)
     recent = ''
@@ -318,35 +318,41 @@ while livesLost < 10:
         triedChars.append(recent)
         livesLost += 1
     if stillBlanks() == False:
-        # loss(livesLost)
+        the_word.set(printBlanks())
+        loss(livesLost)
         print('you win')
         win = True
         break
 else:
-    # loss(livesLost)
+    loss(livesLost)
     print('you lose')
     win = False
 
 
 if win:
-    string_var.set('YOU WIN!!!')
+    string_var.set('YOU WIN!!!, do you want to play again(Y/N)')
 else:
-    string_var.set('YOU LOSE')
+    string_var.set('YOU LOSE, do you want to play again(Y/N)')
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-time.sleep(5)
-"""
+time.sleep(1)
+
 while bool(replayGame) == False:
-    replayGame = msvcrt.getch()
-    if 'y' in replayGame.lower():
+    recent = ''
+    while bool(recent) == False:
+        recent = userInput.get()
+        time.sleep(0.01)
+        userInput.delete(0, tkinter.END)
+        window.update()
+    if 'y' in recent.lower():
         restart_program()
-    elif 'n' in replayGame.lower():
+    elif 'n' in recent.lower():
         break
     else:
         print('must chose yes or no')
 
-"""
+
 # window.mainloop()
 
     
