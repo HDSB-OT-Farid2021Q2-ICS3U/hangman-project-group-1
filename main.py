@@ -244,7 +244,9 @@ def menu():
 def loss(lost_turns):
     """draws stickman from list of moves sequencially per lost turn"""
     if lost_turns == 0:
-        pass
+        string_var.set(formatedTriedChars())
+        window.update()
+        return
     if lost_turns > 3:
         wide = 5
         col = 'white'
