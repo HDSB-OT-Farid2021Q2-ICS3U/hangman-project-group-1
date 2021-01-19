@@ -24,6 +24,8 @@ def create_canvas():
     canvas = Canvas(window, width=500, height=500, bg= 'black')
     canvas.pack()
 
+
+
 window = Tk()# make the window
 window.attributes('-topmost', True)
 window.title('HANGMAN')
@@ -32,6 +34,7 @@ the_word.set('SELECT DIFFICULTY FIRST')
 label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
+create_canvas()
 
 string_var = StringVar()
 string_var.set('')
