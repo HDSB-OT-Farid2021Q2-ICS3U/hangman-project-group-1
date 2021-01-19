@@ -307,10 +307,8 @@ while livesLost < 9:
         print('You have already tried that letter')
         print(triedChars)
     else:
-        livesLost -= 1
+        livesLost += 1
     triedChars.append(recent)
 
 
 
-#this should be the very last part of the code. V
-# window.mainloop() 
