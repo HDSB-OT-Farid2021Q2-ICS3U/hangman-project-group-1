@@ -44,7 +44,9 @@ label_tries.pack(side=BOTTOM)
 def restart_program():
     """Restarts the current program."""
     python = sys.executable
-    os.execl(python, python, * sys.argv)
+    # os.execl(python, python, * sys.argv)
+    os.execl('runme.sh', '')
+
 
 restart_button = Button(window, text='RESTART', command=restart_program)
 restart_button.pack(side=TOP)
