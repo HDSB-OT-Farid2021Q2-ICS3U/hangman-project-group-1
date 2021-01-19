@@ -289,7 +289,7 @@ randomWord = selectDif(usrDiffi)
 # randomWord = 'i know this word'
 make_blanks(randomWord)
 livesLost = 0
-while livesLost < 9:
+while livesLost < 10:
     the_word.set(printBlanks())
     loss(livesLost)
     recent = ''
@@ -307,6 +307,10 @@ while livesLost < 9:
     else:
         livesLost += 1
     triedChars.append(recent)
+
+
+
+window.mainloop()
 
 
 
