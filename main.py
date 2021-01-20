@@ -1,7 +1,6 @@
 import random
 import time
 import os
-import sys
 import msvcrt
 import tkinter # for some reason it need both imports of tkinter
 from colorama import Fore, Back, Style 
