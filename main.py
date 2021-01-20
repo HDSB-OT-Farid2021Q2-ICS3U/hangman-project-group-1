@@ -7,17 +7,8 @@ import tkinter # for some reason it need both imports of tkinter
 from colorama import Fore, Back, Style 
 from tkinter import*
 from platform   import system as system_name  # Returns the system/OS name
-from subprocess import call   as system_call  # Execute a shell command
 
-black = "\033[30m"
-grey = "\033[90m"
-red = "\033[91m"
-green = "\033[92m"
-orange = "\033[93m"
-blue = "\033[94m"
-purple = "\033[95m"
-lightBlue = "\033[96m"
-global triedChars
+global triedChars # 
 triedChars = []
 man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]]
 
@@ -25,8 +16,6 @@ def create_canvas():
     global canvas
     canvas = Canvas(window, width=500, height=500, bg= 'black')
     canvas.pack()
-
-
 
 window = Tk()# make the window
 window.attributes('-topmost', True)
@@ -39,7 +28,7 @@ label.pack()
 create_canvas()
 
 string_var = StringVar()
-string_var.set('')
+string_var.set('TRIED CHARACTERS')
 label_tries = Label(window, font=(16), textvariable = string_var)
 userInput = Entry(window)
 userInput.pack(side=BOTTOM)
@@ -60,7 +49,7 @@ restart_button.pack(side=TOP)
 
 def kill():
     window.destroy()
-    time.sleep(2)
+    # time.sleep(2)
     os.abort()
 
 def make_blanks(hangmanWord):
@@ -113,6 +102,7 @@ def checker(hangmanWord, player_input):
         return True
 
 def formatedTriedChars():
+    """returns an ordered, duplicate free formated string of the tried characters list"""
     noRepeats = sorted(triedChars)
     noRepeats = list(dict.fromkeys(noRepeats))
     noRepeats = [i for i in noRepeats if i not in [x[0] for x in blanks]]
@@ -164,9 +154,7 @@ def loading():
         time.sleep(0.5)
 
 def clear_screen():
-    """
-    Clears the terminal screen.
-    """
+    """Clears the terminal screen."""
     # Clear screen command as function of OS
     command = 'cls' if system_name().lower()=='windows' else 'clear'
     # Action
@@ -253,7 +241,6 @@ def loss(lost_turns):
 
     if lost_turns != 4:
         canvas.create_line(man[lost_turns - 1], fill = col, width = wide)  
-        print(lost_turns)
         # print(man[lost_turns])
     else:
         canvas.create_oval(man[lost_turns - 1], fill = col, width = wide)
@@ -325,6 +312,3 @@ while bool(replayGame) == False:
         break
     else:
         print('must chose yes or no')
-
-
-# window.mainloop()
