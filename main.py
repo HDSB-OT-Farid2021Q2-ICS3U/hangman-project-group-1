@@ -8,12 +8,11 @@ from colorama import Fore, Back, Style
 from tkinter import*
 from platform   import system as system_name  # Returns the system/OS name
 
-global triedChars # A list holding all of the tried characters
+global triedChars # 
 triedChars = []
-man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]] # coordinates for how to draw the hangman
+man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]]
 
 def create_canvas():
-    """Creates a canvas in the tkinter window"""
     global canvas
     canvas = Canvas(window, width=500, height=500, bg= 'black')
     canvas.pack()
@@ -28,6 +27,7 @@ label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
 create_canvas()
+
 string_var = StringVar()
 string_var.set('TRIED CHARACTERS')
 label_tries = Label(window, font=(16), textvariable = string_var)
@@ -35,23 +35,27 @@ userInput = Entry(window)
 userInput.pack(side=BOTTOM)
 label_tries.pack(side=BOTTOM)
 
+
 def restart_program():
     """Restarts the current program."""
     window.destroy()
     os.system('py main.py')
 
+
 restart_button = Button(window, text='RESTART', command=restart_program)
 restart_button.pack(side=TOP)
+
+
 
 
 def kill():
     """Closes the window and exits the program"""
     window.destroy()
-    clear_screen()
+    # time.sleep(2)
     os.abort()
 
 def make_blanks(hangmanWord):
-    """Makes a blanks list from a word"""
+    """ takes ammount of hangmanWord and displays blanks"""
     global blanks
     blanks = []
     for i in hangmanWord:
@@ -59,6 +63,11 @@ def make_blanks(hangmanWord):
             blanks.append([i, True])
         else:
             blanks.append([i, False])
+    """
+    for i in range(len(hangmanWord)):
+        blanks.append('_')
+    """
+    # return blanks
     
 def printBlanks():
     """Returns the string of the players progress"""
@@ -81,7 +90,7 @@ def stillLetter(playerLetter):
     return howMany.count(playerLetter) > 0
 
 def checker(hangmanWord, player_input):
-    """checks for a letter then if it is correct it makes the required changes to blanks"""
+    """checks for a letter then if it is correct it replaces string"""
     if hangmanWord.count(player_input) == 0:
         print('try again')
         return False
@@ -123,7 +132,6 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
             return line.strip('\n')
 
 def loading():
-<<<<<<< HEAD
     """Prints loading screen when game is first launched"""
     counterOne = 0 #Counter variable used for loop
     counterTwo = 0 #Second counter variable used for loop
@@ -134,25 +142,6 @@ def loading():
     while counterOne != 3: 
         print('Loading' + '.' * counterOne)
         time.sleep(0.5)
-=======
-    """Print out the loading animation"""
-    counterOne = 0
-    #clear = lambda: os.system('cls')
-    clear_screen()
-    print('Loading')
-    time.sleep(0.25)
-    clear_screen()
-    print('Loading.')
-    time.sleep(0.25)   
-    clear_screen()
-    print('Loading..')
-    time.sleep(0.25)   
-    clear_screen()
-    print('Loading...')
-    time.sleep(0.25)   
-    clear_screen()
-    while counterOne != 3:
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
         counterOne += 1
         clear_screen()
     
@@ -167,7 +156,7 @@ def loading():
 def clear_screen():
     """Clears the terminal screen."""
     # Clear screen command as function of OS
-    command = 'cls' if system_name().lower()=='windows' else 'clear'# makes sure that it uses the right command depending on operating system
+    command = 'cls' if system_name().lower()=='windows' else 'clear'
     # Action
     os.system(command)
 
@@ -175,7 +164,7 @@ def title():
     """Prints the changing title screen in a loop until ente key is pressed"""
 
     
-    while True:#Loops title screen until key is pressed.
+    while True:#Loops title screen until key i
 
         print(Fore.RED+ Back.YELLOW + ''.center(275,'/')) #Prints menu screen with a yellow background and a red font colour
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1988'.center(275,'/'))
@@ -216,11 +205,7 @@ def title():
         clear_screen()
 
 def getPlayerChoice():
-<<<<<<< HEAD
     """Checks to make sure that the user input is whithin the menu range"""
-=======
-    """Gets the player to choose a number between 1 and 4"""
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
     while True:
         playerIn = input('What is your choice: \n')#Asks for what function the user would like to select.
 
@@ -280,8 +265,6 @@ menu()
 
 
 usrDiffi = getPlayerChoice()
-# randomWord = selectDif(usrDiffi)
-# time.sleep(5)
 randomWord = 'i know this word'
 randomWord = selectDif(usrDiffi)
 make_blanks(randomWord)
@@ -302,12 +285,15 @@ while livesLost < 9:
         print('No numbers/special characters')
     elif recent in triedChars:
         print('You have already tried that letter')
+        print(triedChars)
+        print(formatedTriedChars())
     else:
         triedChars.append(recent)
         livesLost += 1
     if stillBlanks() == False:
         the_word.set(printBlanks())
         loss(livesLost)
+        print('you win')
         win = True
         break
 else:
@@ -323,10 +309,6 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-<<<<<<< HEAD
-=======
-userInput.delete(0, tkinter.END)
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
 time.sleep(1)
 
 while bool(replayGame) == False:
