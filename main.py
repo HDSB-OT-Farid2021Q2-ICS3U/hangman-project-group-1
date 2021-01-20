@@ -8,6 +8,9 @@ from colorama import Fore, Back, Style
 from tkinter import*
 from platform   import system as system_name  # Returns the system/OS name
 
+# @The-Chef123 TODO create the main menu
+# @mythos341 TODO make the text stuff work
+
 global triedChars # A list holding all of the tried characters
 triedChars = []
 man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]] # coordinates for how to draw the hangman
