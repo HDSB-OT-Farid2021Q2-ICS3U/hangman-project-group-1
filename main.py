@@ -103,6 +103,7 @@ def formatedTriedChars():
 
 def selectDif(difNum): #1=easy, 2=medium, 3=hard
     """enter difficullty, returns word(s) of that difficulty"""
+    print('Game Started\n')
     if difNum == 1:
         wordDict = 'easy.txt'
         words = open(wordDict, 'rt')
@@ -255,8 +256,6 @@ menu()
 
 
 usrDiffi = getPlayerChoice()
-# randomWord = selectDif(usrDiffi)
-# time.sleep(5)
 randomWord = 'i know this word'
 randomWord = selectDif(usrDiffi)
 make_blanks(randomWord)
@@ -290,7 +289,7 @@ else:
     print('you lose')
     win = False
 
-
+#Restarts/Ends game depending on if the user wants to play again or not
 if win:
     string_var.set('YOU WIN!!!, do you want to play again(Y/N)')
 else:
