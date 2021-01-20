@@ -86,7 +86,6 @@ def stillLetter(playerLetter):
 def checker(hangmanWord, player_input):
     """checks for a letter then if it is correct it makes the required changes to blanks"""
     if hangmanWord.count(player_input) == 0:
-        print('try again')
         return False
     else: 
         lastFoundIndex = 0
