@@ -128,6 +128,7 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
 def loading():
     """Print out the loading animation"""
     counterOne = 0
+    counterTwo = 0
     #clear = lambda: os.system('cls')
     clear_screen()
     print('Loading')
@@ -208,7 +209,7 @@ def title():
 def getPlayerChoice():
     """Gets the player to choose a number between 1 and 4"""
     while True:
-        playerIn = input('What is your choice: \n')#Asks for what function the user would like to select.
+        playerIn = input('What is your choice: ')#Asks for what function the user would like to select.
 
         if playerIn.isnumeric() == False: #Checks to make sure that the user inputted a number 
             print('Your choice must be a number between 1-4')
@@ -272,7 +273,7 @@ randomWord = 'i know this word'
 randomWord = selectDif(usrDiffi)
 make_blanks(randomWord)
 livesLost = 0
-while livesLost < 9:
+while livesLost < 9:# main gameplay loop
     the_word.set(printBlanks())
     loss(livesLost)
     recent = ''
