@@ -81,8 +81,7 @@ def stillLetter(playerLetter):
     return howMany.count(playerLetter) > 0
 
 def checker(hangmanWord, player_input):
-    # while stillBlanks():
-    """checks for a letter then if it is correct it replaces string"""
+    """checks for a letter then if it is correct it makes the required changes to blanks"""
     if hangmanWord.count(player_input) == 0:
         print('try again')
         return False
@@ -300,7 +299,7 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-
+userInput.delete(0, tkinter.END)
 time.sleep(1)
 
 while bool(replayGame) == False:
