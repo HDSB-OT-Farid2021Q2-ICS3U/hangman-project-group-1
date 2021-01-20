@@ -27,7 +27,6 @@ def create_canvas():
     canvas.pack()
 
 
-
 window = Tk()# make the window
 window.attributes('-topmost', True)
 window.title('HANGMAN')
@@ -59,6 +58,7 @@ restart_button.pack(side=TOP)
 
 
 def kill():
+    """Closes the window and exits the program"""
     window.destroy()
     time.sleep(2)
     os.abort()
@@ -142,25 +142,25 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
 
 def loading():
     counterOne = 0
-    clear = lambda: os.system('cls')
-    clear()
+    #clear = lambda: os.system('cls')
+    clear_screen()
     print('Loading')
-    time.sleep(0.5)
-    clear()
+    time.sleep(0.25)
+    clear_screen()
     print('Loading.')
-    time.sleep(0.5)   
-    clear()
+    time.sleep(0.25)   
+    clear_screen()
     print('Loading..')
-    time.sleep(0.5)   
-    clear()
+    time.sleep(0.25)   
+    clear_screen()
     print('Loading...')
-    time.sleep(0.5)   
-    clear()
+    time.sleep(0.25)   
+    clear_screen()
     while counterOne != 3:
         counterOne += 1
         print('System Requirements Met')
-        time.sleep(1)
-        clear()
+        time.sleep(0.5)
+        clear_screen()
         time.sleep(0.5)
 
 def clear_screen():
@@ -173,41 +173,49 @@ def clear_screen():
     os.system(command)
 
 def title():
+    """Prints the changing title screen in a loop until ente key is pressed"""
 
-    counterTwo = 0
-    while counterTwo != 3:
-        clear = lambda: os.system('cls')
-        print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
+    loop = True #Used to run the while loop
+    while loop == True:
+        #clear = lambda: os.system('cls')
+
+        print(Fore.RED+ Back.YELLOW + ''.center(275,'/')) #Prints menu screen with a yellow background and a red font colour
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1988'.center(275,'/'))
         print(Fore.RED+ Back.YELLOW + ''.center(275,'/'))
-        if msvcrt.kbhit():
+
+        if msvcrt.kbhit(): #Checks to see if a key has been pressed and ends the function/loop if it has
             print(Style.RESET_ALL)
             break
-        time.sleep(0.5)
-        print(Style.RESET_ALL)
-         
 
-        clear()
-        print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
+
+        time.sleep(0.5)#Delay the continuation for the program for 5 miliseconds
+        print(Style.RESET_ALL)#Resets the style of the text in the terminal to the original setting
+        clear_screen()#Calls the clear_screen() function*
+
+
+        print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))#Prints menu screen with a red background and a yellow font colour
         print(Fore.YELLOW+ Back.RED + 'Press Enter'.center(275,'|'))
         print(Fore.YELLOW+ Back.RED + ''.center(275,'|'))
+
         if msvcrt.kbhit():
             print(Style.RESET_ALL)
             break
+
         time.sleep(0.5) 
         print(Style.RESET_ALL)
+        clear_screen()
 
-        clear()
-        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))
+        print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))#Prints menu screen with a black background and a light magenta font colour
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + 'STICKMAN GAME 1988'.center(275,'\\'))
         print(Fore.LIGHTMAGENTA_EX+ Back.BLACK + ''.center(275,'\\'))   
+
         if msvcrt.kbhit():
             print(Style.RESET_ALL)
             break
+
         time.sleep(0.5)
         print(Style.RESET_ALL)
-
-        clear()
+        clear_screen()
 
 def getPlayerChoice():
     while True:
@@ -226,13 +234,13 @@ def getPlayerChoice():
 
 def menu():
     """Prints the main menu"""
-    print(Fore.RED + ''.center(275, '-').center(1, '|'))
+    print(Fore.RED + ''.center(275, '-').center(1, '|'))#Main menu printed with the font being red and centered with '-'.
     print('Stickman 1986'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
     print('CHOOSE YOUR DIFFICULTY'.center(275, '-').center(1, '|'))
-    print('1. | I dont like challenge'.center(275, '-').center(1, '|'))
-    print('2. | You want a challenge but you dont want to look bad'.center(275, '-').center(1, '|'))
-    print('3. | The obvious choice'.center(275, '-').center(1, '|'))
+    print('1. Easy | I dont like challenge'.center(275, '-').center(1, '|'))
+    print('2. Medium | You want a challenge but you dont want to look bad'.center(275, '-').center(1, '|'))
+    print('3. Hard | The obvious choice'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
     print('4. | Had Enough?'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
@@ -268,13 +276,10 @@ title()
 clear_screen()
 menu()
 usrDiffi = getPlayerChoice()
-<<<<<<< HEAD
 # randomWord = selectDif(usrDiffi)
 # time.sleep(5)
 randomWord = 'i know this word'
-=======
 randomWord = selectDif(usrDiffi)
->>>>>>> 326689951ed5b5d0df52b44b7321c3180487d64d
 make_blanks(randomWord)
 livesLost = 0
 while livesLost < 9:
@@ -317,10 +322,7 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-<<<<<<< HEAD
 time.sleep(1)
-=======
->>>>>>> 326689951ed5b5d0df52b44b7321c3180487d64d
 
 while bool(replayGame) == False:
     recent = ''
