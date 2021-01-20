@@ -126,18 +126,6 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
             return line.strip('\n')
 
 def loading():
-<<<<<<< HEAD
-    """Prints loading screen when game is first launched"""
-    counterOne = 0 #Counter variable used for loop
-    counterTwo = 0 #Second counter variable used for loop
-
-
-
-    #Display loading screen with the number of dots increasing each loop.
-    while counterOne != 3: 
-        print('Loading' + '.' * counterOne)
-        time.sleep(0.5)
-=======
     """Print out the loading animation"""
     counterOne = 0
     #clear = lambda: os.system('cls')
@@ -155,7 +143,6 @@ def loading():
     time.sleep(0.25)   
     clear_screen()
     while counterOne != 3:
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
         counterOne += 1
         clear_screen()
     
@@ -219,11 +206,7 @@ def title():
         clear_screen()
 
 def getPlayerChoice():
-<<<<<<< HEAD
-    """Checks to make sure that the user input is whithin the menu range"""
-=======
     """Gets the player to choose a number between 1 and 4"""
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
     while True:
         playerIn = input('What is your choice: \n')#Asks for what function the user would like to select.
 
@@ -326,10 +309,7 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-<<<<<<< HEAD
-=======
 userInput.delete(0, tkinter.END)
->>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
 time.sleep(1)
 
 while bool(replayGame) == False:
