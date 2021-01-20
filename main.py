@@ -8,16 +8,17 @@ from colorama import Fore, Back, Style
 from tkinter import*
 from platform   import system as system_name  # Returns the system/OS name
 
-global triedChars # 
+global triedChars # A list holding all of the tried characters
 triedChars = []
-man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]]
+man = [[100,450,100,75], [100,75,250,75], [250,75,250,100], [200,200,300,100], [250,200,250,300], [250,300,350,400], [250,300,150,400], [250,250,150,250], [250,250, 350,250],[250,250, 350,250]] # coordinates for how to draw the hangman
 
 def create_canvas():
+    """Creates a canvas in the tkinter window"""
     global canvas
     canvas = Canvas(window, width=500, height=500, bg= 'black')
     canvas.pack()
 
-window = Tk()# make the window
+window = Tk()# make the tkinter window
 window.attributes('-topmost', True)
 window.title('HANGMAN')
 the_word = StringVar()
@@ -26,7 +27,6 @@ label = Label(window, textvariable=the_word, font=16) # Create top Label
 label.place(height=40, width= 500)
 label.pack()
 create_canvas()
-
 string_var = StringVar()
 string_var.set('TRIED CHARACTERS')
 label_tries = Label(window, font=(16), textvariable = string_var)
@@ -34,26 +34,23 @@ userInput = Entry(window)
 userInput.pack(side=BOTTOM)
 label_tries.pack(side=BOTTOM)
 
-
 def restart_program():
     """Restarts the current program."""
     window.destroy()
     os.system('py main.py')
 
-
 restart_button = Button(window, text='RESTART', command=restart_program)
 restart_button.pack(side=TOP)
 
 
-
-
 def kill():
+    """kills the program"""
     window.destroy()
-    # time.sleep(2)
+    clear_screen()
     os.abort()
 
 def make_blanks(hangmanWord):
-    """ takes ammount of hangmanWord and displays blanks"""
+    """Makes a blanks list from a word"""
     global blanks
     blanks = []
     for i in hangmanWord:
@@ -61,11 +58,6 @@ def make_blanks(hangmanWord):
             blanks.append([i, True])
         else:
             blanks.append([i, False])
-    """
-    for i in range(len(hangmanWord)):
-        blanks.append('_')
-    """
-    # return blanks
     
 def printBlanks():
     """Returns the string of the players progress"""
@@ -131,6 +123,7 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
             return line.strip('\n')
 
 def loading():
+    """Print out the loading animation"""
     counterOne = 0
     clear = lambda: os.system('cls')
     clear()
@@ -156,12 +149,12 @@ def loading():
 def clear_screen():
     """Clears the terminal screen."""
     # Clear screen command as function of OS
-    command = 'cls' if system_name().lower()=='windows' else 'clear'
+    command = 'cls' if system_name().lower()=='windows' else 'clear'# makes sure that it uses the right command depending on operating system
     # Action
     os.system(command)
 
 def title():
-
+    """Prints out the looping title screen"""
     counterTwo = 0
     while counterTwo != 3:
         clear = lambda: os.system('cls')
@@ -198,6 +191,7 @@ def title():
         clear()
 
 def getPlayerChoice():
+    """Gets the player to choose a number between 1 and 4"""
     while True:
         playerIn = input('What is your choice: ')
         if playerIn.isnumeric() == False:
@@ -241,7 +235,6 @@ def loss(lost_turns):
 
     if lost_turns != 4:
         canvas.create_line(man[lost_turns - 1], fill = col, width = wide)  
-        # print(man[lost_turns])
     else:
         canvas.create_oval(man[lost_turns - 1], fill = col, width = wide)
     
@@ -274,15 +267,12 @@ while livesLost < 9:
         print('No numbers/special characters')
     elif recent in triedChars:
         print('You have already tried that letter')
-        print(triedChars)
-        print(formatedTriedChars())
     else:
         triedChars.append(recent)
         livesLost += 1
     if stillBlanks() == False:
         the_word.set(printBlanks())
         loss(livesLost)
-        print('you win')
         win = True
         break
 else:
@@ -298,7 +288,7 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
-
+time.sleep(1)
 while bool(replayGame) == False:
     recent = ''
     while bool(recent) == False:
