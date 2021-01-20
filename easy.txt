@@ -13,7 +13,6 @@ across
 act
 addition
 adjustment
-advertisement
 after
 again
 against
@@ -149,7 +148,6 @@ colour
 comb
 come
 comfort
-committee
 common
 company
 comparison
@@ -198,11 +196,9 @@ delicate
 dependent
 design
 desire
-destruction
 detail
 development
 different
-digestion
 direction
 dirty
 discovery
@@ -593,7 +589,6 @@ regret
 regular
 relation
 religion
-representative
 request
 respect
 responsible
@@ -663,7 +658,6 @@ simple
 sister
 size
 skin
-
 skirt
 sky
 sleep
@@ -686,7 +680,6 @@ sock
 soft
 solid
 some
-
 son
 song
 sort
