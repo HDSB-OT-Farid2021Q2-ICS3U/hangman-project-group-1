@@ -126,6 +126,18 @@ def selectDif(difNum): #1=easy, 2=medium, 3=hard
             return line.strip('\n')
 
 def loading():
+<<<<<<< HEAD
+    """Prints loading screen when game is first launched"""
+    counterOne = 0 #Counter variable used for loop
+    counterTwo = 0 #Second counter variable used for loop
+
+
+
+    #Display loading screen with the number of dots increasing each loop.
+    while counterOne != 3: 
+        print('Loading' + '.' * counterOne)
+        time.sleep(0.5)
+=======
     """Print out the loading animation"""
     counterOne = 0
     #clear = lambda: os.system('cls')
@@ -143,7 +155,13 @@ def loading():
     time.sleep(0.25)   
     clear_screen()
     while counterOne != 3:
+>>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
         counterOne += 1
+        clear_screen()
+    
+    #Flashes 'System Requirements Met' 3 times quickly.
+    while counterTwo != 3:
+        counterTwo += 1
         print('System Requirements Met')
         time.sleep(0.5)
         clear_screen()
@@ -159,9 +177,8 @@ def clear_screen():
 def title():
     """Prints the changing title screen in a loop until ente key is pressed"""
 
-    loop = True #Used to run the while loop
-    while loop == True:
-        #clear = lambda: os.system('cls')
+    
+    while True:#Loops title screen until key is pressed.
 
         print(Fore.RED+ Back.YELLOW + ''.center(275,'/')) #Prints menu screen with a yellow background and a red font colour
         print(Fore.RED+ Back.YELLOW + 'STICKMAN GAME 1988'.center(275,'/'))
@@ -202,18 +219,23 @@ def title():
         clear_screen()
 
 def getPlayerChoice():
+<<<<<<< HEAD
+    """Checks to make sure that the user input is whithin the menu range"""
+=======
     """Gets the player to choose a number between 1 and 4"""
+>>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
     while True:
-        playerIn = input('What is your choice: ')
-        if playerIn.isnumeric() == False:
+        playerIn = input('What is your choice: \n')#Asks for what function the user would like to select.
+
+        if playerIn.isnumeric() == False: #Checks to make sure that the user inputted a number 
             print('Your choice must be a number between 1-4')
-        elif int(playerIn) == 4:
+        elif int(playerIn) == 4: #If the user selects function 4, the kill function will be called
             kill()
-        elif int(playerIn) < 1 or int(playerIn) > 3:
+        elif int(playerIn) < 1 or int(playerIn) > 3: #Checks to see if the number inputted is within the range of the menu
             print('Your choice is not in the range 1-4')
         else:
             try:
-                return int(playerIn)
+                return int(playerIn) 
             except:
                 pass
 
@@ -227,7 +249,7 @@ def menu():
     print('2. Medium | You want a challenge but you dont want to look bad'.center(275, '-').center(1, '|'))
     print('3. Hard | The obvious choice'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
-    print('4. | Had Enough?'.center(275, '-').center(1, '|'))
+    print('4. Exit | Had Enough?'.center(275, '-').center(1, '|'))
     print(Fore.RED + ''.center(275, '-').center(1, '|'))
     print(Style.RESET_ALL) 
 
@@ -253,11 +275,13 @@ def loss(lost_turns):
     window.update()
 
 
-
+#Menu Functions are called:
 loading()
 title()
 clear_screen()
 menu()
+
+
 usrDiffi = getPlayerChoice()
 # randomWord = selectDif(usrDiffi)
 # time.sleep(5)
@@ -302,7 +326,10 @@ else:
     the_word.set('The word was: ' + randomWord)
 window.update()
 replayGame = ''
+<<<<<<< HEAD
+=======
 userInput.delete(0, tkinter.END)
+>>>>>>> 53c1d3e57be1a0d3d7629ff7c6c73ad3ebfaa649
 time.sleep(1)
 
 while bool(replayGame) == False:
